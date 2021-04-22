@@ -1,18 +1,18 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Main Page</title>
 </head>
 <body>
 	<center>
-		<h1>╟т╫цфг га╥н╠в╥╔</h1>
+		<h1>Й╡▄Л▀°М▄░ М■└К║°Й╥╦К·╗</h1>
 		<h3>${user.id}</h3>
-		<a href="login.jsp">╥н╠вюн</a>
-		<a href="createUser.jsp">х╦©Ь╟║ют</a>
-		<a href="changePwdForm.jsp">╬охё╨╞╟Ф</a>
+		<a href="login.jsp">К║°Й╥╦Л²╦</a>
+		<a href="createUser.jsp">М ▄Л⌡░Й╟─Л·┘</a>
+		<a href="changePwdForm.jsp">Л∙■М≤╦КЁ─Й╡╫</a>
 		
 	</center>
 </body>

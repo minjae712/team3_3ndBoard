@@ -25,7 +25,15 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
-
+	
+	@ModelAttribute("conditionMap")
+	public Map<String, String> searchConditionMap() {
+		Map<String, String> conditionMap = new HashMap<String, String>();
+		conditionMap.put("제목", "TITLE");
+		conditionMap.put("내용", "CONTENT");
+		return conditionMap;
+	}
+	
 	@RequestMapping(value = "/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IOException {
 		boardService.insertBoard(vo);
@@ -52,6 +60,13 @@ public class BoardController {
 
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
+		
+		if(vo.getSearchCondition() == null) {
+			vo.setSearchCondition("TITLE");
+		}
+		if(vo.getSearchKeyword() == null) {
+			vo.setSearchKeyword("");
+		}
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		return "getBoardList.jsp";
 	}

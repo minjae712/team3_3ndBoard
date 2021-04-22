@@ -1,30 +1,30 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>È¸¿ø°¡ÀÔ</title>
+<title>íšŒì›ê°€ìž…</title>
 </head>
 <body>
 	<center>
-		<h1>È¸¿ø°¡ÀÔ</h1>
+		<h1>íšŒì›ê°€ìž…</h1>
 		<hr>
 		<form action="createUser.do" method="post">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange" width="70">¾ÆÀÌµð</td>
+					<td bgcolor="orange" width="70">ì•„ì´ë””</td>
 					<td align="left"><input type="text" name="id" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">ºñ¹Ð¹øÈ£</td>
+					<td bgcolor="orange">ë¹„ë°€ë²ˆí˜¸</td>
 					<td align="left"><input type="password" name="password"/></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">ÀÌ¸§</td>
+					<td bgcolor="orange">ì´ë¦„</td>
 					<td align="left"><input type="text" name="name"/></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">µî±Þ</td>
+					<td bgcolor="orange">ë“±ê¸‰</td>
 					<td align="left"><select name="role">
 						<option value="Admin">Admin</option>
 						<option value="User">User</option>					
@@ -32,12 +32,12 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
-						value="°¡ÀÔÇÏ±â " /></td>
+						value="ê°€ìž…í•˜ê¸° " /></td>
 				</tr>
 			</table>
 		</form>
 		<hr>
-		<a href="index.jsp">¸ÞÀÎ È­¸éÀ¸·Î</a>
+		<a href="index.jsp">ë©”ì¸ í™”ë©´ìœ¼ë¡œ</a>
 	</center>
 </body>
 </html>
