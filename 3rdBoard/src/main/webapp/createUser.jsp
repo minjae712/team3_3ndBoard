@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,9 +21,30 @@
 					<td align="left"><input type="password" name="password"/></td>
 				</tr>
 				<tr>
+					<td bgcolor="orange">이메일</td>
+					<td align="left"><input type="text" name="email"/></td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">이미지</td>
+					<td align="left"><select name="image">
+						<option value="none">none</option>
+						</select></td>
+				</tr>
+				<tr>
 					<td bgcolor="orange">이름</td>
 					<td align="left"><input type="text" name="name"/></td>
 				</tr>
+
+				<tr>
+					<td bgcolor="orange">우편번호</td>
+					<td align="left"><input type="text" name="post"/></td>
+				</tr>				
+				<tr>
+					<td bgcolor="orange">주소</td>
+					<td align="left"><select name="address">
+						<option value="null">null</option>
+						</select></td>
+				</tr>				
 				<tr>
 					<td bgcolor="orange">등급</td>
 					<td align="left"><select name="role">

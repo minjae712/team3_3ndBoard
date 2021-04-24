@@ -5,16 +5,17 @@
 
 <mapper namespace="userDAO">
 	
-	<insert id="createUser">
-	INSERT INTO USERS VALUES(#{id},#{password},#{name},#{role})
+	<insert id="createUser" >
+	INSERT INTO MEMBER(ID,ROLE,PASSWORD,EMAIL,IMAGE,NAME,POST,ADDRESS) 
+	VALUES(#{id},#{role},#{password},#{email},#{image},#{name},#{post},#{address})
 	</insert>
 
 	<select id="getUser" resultType="user">
-		select * from users where id = #{id}
+		SELECT * FROM MEMBER WHERE ID = #{id}
 	</select>
 	
 	<update id="changePassword">
-	UPDATE USERS SET PASSWORD= #{password} WHERE ID= #{id}
+	UPDATE MEMBER SET PASSWORD= #{password} WHERE ID= #{id}
 	</update>
 
 </mapper>
