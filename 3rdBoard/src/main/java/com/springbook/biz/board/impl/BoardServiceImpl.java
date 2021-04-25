@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springbook.biz.board.BoardPages;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
+import com.springbook.biz.board.PageSize;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -27,10 +29,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	public BoardVO getBoard(BoardVO vo) {
+		boardDAO.increaseCount(vo);
 		return boardDAO.getBoard(vo);
 	}
 
-	public List<BoardVO> getBoardList(BoardVO vo) {
-		return boardDAO.getBoardList(vo);
+	public BoardPages getBoardPages(int pageNo) {
+		int totalBoardCount = boardDAO.getBoardCount();
+		PageSize pageSize = new PageSize(((pageNo-1) * 10)+1, (pageNo * 10));
+		List<BoardVO> boardList = boardDAO.getBoardPages(pageSize);
+		return new BoardPages(totalBoardCount, pageNo, 10, boardList);
+		
 	}
 }

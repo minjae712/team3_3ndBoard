@@ -11,11 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.springbook.biz.board.BoardListVO;
+import com.springbook.biz.board.BoardPages;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 
@@ -29,27 +31,27 @@ public class BoardController {
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("제목", "TITLE");
 		conditionMap.put("내용", "CONTENT");
+		conditionMap.put("제목", "TITLE");
 		return conditionMap;
 	}
 	
 	@RequestMapping(value = "/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IOException {
 		boardService.insertBoard(vo);
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
 	}
 
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
 		boardService.updateBoard(vo);
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
 	}
 
 	@RequestMapping("/deleteBoard.do")
 	public String deleteBoard(BoardVO vo) {
 		boardService.deleteBoard(vo);
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
 	}
 
 	@RequestMapping("/getBoard.do")
@@ -58,16 +60,16 @@ public class BoardController {
 		return "getBoard.jsp"; 
 	}
 
-	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardVO vo, Model model) {
+	@RequestMapping(value ="/getBoardList.do")
+	public String getBoardList(BoardVO vo,BoardPages pages,Model model) {
 		
-		if(vo.getSearchCondition() == null) {
-			vo.setSearchCondition("TITLE");
+		int pageNo = 1;
+		if(pages.getCurrentPage() == 0) {
+			pages.setCurrentPage(pageNo);
 		}
-		if(vo.getSearchKeyword() == null) {
-			vo.setSearchKeyword("");
-		}
-		model.addAttribute("boardList", boardService.getBoardList(vo));
+		model.addAttribute("pages",boardService.getBoardPages(pages.getCurrentPage()));
 		return "getBoardList.jsp";
 	}
+
+
 }

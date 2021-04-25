@@ -4,48 +4,43 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 상세</title>
 </head>
 <body>
 	<center>
-		<h1>글 상세</h1>
-		<a href="logout.do">Log-out</a>
+		<%@ include file="/menuBar.jsp" %>
+		<h1><b>자유 게시판</b></h1>
 		<hr>
-		<form action="updateBoard.do" method="post">
-			<input name="no" type="hidden" value="${board.no}" />
-			<table border="1" cellpadding="0" cellspacing="0">
+		<div style="width: 70%">
+			<table class="table table-bordered" >
 				<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input name="title" type="text"
-						value="${board.title }" /></td>
+					<td colspan="1">제목</td>
+					<td colspan="5">${board.title}</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">작성자</td>
-					<td align="left">${board.writer }</td>
+					<td>게시글번호</td>
+					<td colspan="6">${board.no}</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="content" cols="40" rows="10">${board.content }</textarea></td>
+					<td colspan="1">작성자</td>
+					<td colspan="1">${board.writer}</td>
+					<td colspan="1">등록일</td>
+					<td colspan="1">${board.regDate}</td>
+					<td colspan="1">조회수</td>
+					<td colspan="1">${board.cnt}</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">등록일</td>
-					<td align="left">${board.regDate }</td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">조회수</td>
-					<td align="left">${board.cnt }</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="글 수정" /></td>
+					<td colspan="6" height="400">${board.content}</td>
 				</tr>
 			</table>
-		</form>
+		</div>
 		<hr>
-		<a href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteBoard.do?no=${board.no}">글삭제</a>&nbsp;&nbsp;&nbsp;
-		<a href="getBoardList.do">글목록</a>
+		<a class="btn btn-default" href="updateBoard.jsp">글수정</a>&nbsp;&nbsp;&nbsp; 
+		<a class="btn btn-default" href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp; 
+		<a class="btn btn-default" href="deleteBoard.do?no=${board.no}">글삭제</a>&nbsp;&nbsp;&nbsp;
+		<a class="btn btn-default" href="getBoardList.do">글목록</a>
 	</center>
 </body>
 </html>

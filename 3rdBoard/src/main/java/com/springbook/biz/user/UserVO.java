@@ -3,6 +3,7 @@ package com.springbook.biz.user;
 
 
 import java.sql.Date;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,4 +25,22 @@ public class UserVO {
 	public String toString() {
 		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + "]";
 	}
+
+	public Boolean isEmpty() {
+		return this.id != null;
+	}
+	
+	public void idAndPwIsNotNull(Map<String, Boolean> errors,UserVO vo) {
+		if(vo.getId() == null || vo.getId() == "") {
+			errors.put("id", Boolean.TRUE);
+		}
+		if(vo.getPassword() == null || vo.getPassword() == "") {
+			errors.put("password", Boolean.TRUE);
+		}
+	}
+	
+	public Boolean matchPassword(UserVO vo) {
+		return vo.getPassword().equals(password);
+	}
+	
 }

@@ -1,5 +1,8 @@
 package com.springbook.view.user;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +17,13 @@ public class UserController {
 	
 	@Autowired
 	private UserService userservice;
+	Map<String, Boolean> errors = new HashMap<String, Boolean>();
 
 	@RequestMapping("/createUser.do")
 	public String userCreate(UserVO vo) {
 		if(vo.getId() == null || vo.getId() == "") {
 			return "createUser.jsp";
 		}
-		System.out.println("회원가입 처리");
 		userservice.createUser(vo);
 		return "index.jsp";
 	}
@@ -28,24 +31,34 @@ public class UserController {
 	@RequestMapping("/login.do")
 	public String getUser(UserVO vo, HttpSession session) {
 		
-		UserVO user = userservice.getUser(vo);
-		session.setAttribute("user", user);
-		
-		if(user != null) {
-			System.out.println("로그인 처리");
-			return "redirect:getBoardList.do";
-		}else {
+		vo.idAndPwIsNotNull(errors, vo);
+		if(!errors.isEmpty()) {
+			System.out.println("로그인 실패 : 아이디나 비밀번호가 비었습니다.");
+			vo = null;
+			errors.clear();
 			return "login.jsp";
 		}
 		
+		UserVO user = userservice.getUser(vo);
+		session.setAttribute("user", user);
+		
+		if(user != null && vo.matchPassword(user)) {
+			System.out.println("로그인 성공");
+			errors.clear();
+			vo = null;
+			return "redirect:getBoardList.do";
+		}else {
+			System.out.println("로그인 실패 : 아이디가 없거나 비밀번호가 틀립니다.");
+			vo = null;
+			return "login.jsp";
+		}
 	}
-	
 	
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
-		System.out.println("로그아웃 처리");
+		
 		session.invalidate();
-		return "login.jsp";
+		return "index.jsp";
 		
 	}
 	

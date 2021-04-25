@@ -1,6 +1,5 @@
 package com.springbook.biz.board;
 
-
 import java.sql.Date;
 
 import lombok.Getter;
@@ -23,4 +22,11 @@ public class BoardVO {
 		return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
 				+ regDate + ", cnt=" + cnt + "]";
 	}
+
+	public Boolean isEmpty() {
+		return (this.searchKeyword != null) || (!this.searchKeyword.equals(""));
+	}
+	
+	
+	
 }

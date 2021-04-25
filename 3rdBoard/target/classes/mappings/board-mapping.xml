@@ -8,20 +8,26 @@
 		VALUES((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD),#{title},#{writer},#{content})
 	</insert>
 	
+	<select id="getBoardCount" resultType="int">
+	<![CDATA[
+	SELECT COUNT(*) FROM BOARD
+	]]>
+	</select>
+	
+	<select id="getBoardPages" resultType="board">
+	<![CDATA[
+	SELECT * FROM (SELECT B.*,ROWNUM AS R FROM (SELECT * FROM BOARD ORDER BY NO DESC) B) WHERE R >= #{startRow} AND R <= #{endRow}
+	]]>
+	</select>
+	
 	<select id="getBoard" resultType="board">
 		SELECT * FROM BOARD WHERE NO = #{no}
 	</select>
 
-	<select id="getBoardList" resultMap="boardResult">
-		SELECT * FROM BOARD WHERE 1 = 1
-		<if test="searchCondition == 'TITLE'">
-		AND TITLE LIKE '%'||#{searchKeyword}||'%'
-		</if>
-		<if test="searchCondition == 'CONTENT'">
-		AND CONTENT LIKE '%'||#{searchKeyword}||'%'
-		</if>
-		 ORDER BY NO DESC
-	</select>
+
+	<update id="increaseCount">
+		UPDATE BOARD SET CNT = CNT + 1 WHERE NO = #{no}
+	</update>
 
 	<update id="updateBoard">
 		UPDATE BOARD SET TITLE=#{title}, CONTENT=#{content} WHERE NO = #{no}
