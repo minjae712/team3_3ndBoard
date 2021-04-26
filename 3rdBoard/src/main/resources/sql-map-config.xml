@@ -7,6 +7,7 @@
 	<typeAliases>
 		<typeAlias alias="board" type="com.springbook.biz.board.BoardVO" />
 		<typeAlias type="com.springbook.biz.user.UserVO" alias="user" />
+		<typeAlias type="com.springbook.biz.comment.CommentVO" alias="Comment" />
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
