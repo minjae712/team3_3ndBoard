@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>로그인</title>
 </head>
 <body>
@@ -23,6 +24,11 @@
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
 						value="로그인" /></td>
+				</tr>
+				<tr>
+
+					<td colspan="2" align="center"><a href="find_id.jsp">아이디
+							찾기</a></td>
 				</tr>
 			</table>
 		</form>
