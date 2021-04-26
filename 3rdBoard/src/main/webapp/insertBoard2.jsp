@@ -10,7 +10,7 @@
 		<h1>공지사항 등록</h1>
 		<a href="logout.do">Log-out</a>
 		<hr>
-		<form action="insertBoard.do" method="post">
+		<form action="insertBoard2.do" method="post">
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
 					<td bgcolor="orange" width="70">제목</td>
@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
-						value=" 새글 등록 " /></td>
+						value=" 공지사항 등록 " /></td>
 				</tr>
 			</table>
 		</form>

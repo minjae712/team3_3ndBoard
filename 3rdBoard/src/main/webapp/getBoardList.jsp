@@ -21,7 +21,7 @@
 		<div style="width: 70%">
 		<div align="right">
 		<a class="btn btn-default" href="insertBoard.jsp">새글 등록</a>
-		<a class="btn btn-default" href="insertBoard.jsp">공지사항 등록</a>
+		<a class="btn btn-default" href="insertBoard2.jsp">공지사항 등록</a>
 		</div>
 		<table class="table table-striped" width="650">
 			<tr>

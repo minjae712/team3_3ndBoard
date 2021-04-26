@@ -45,6 +45,12 @@ public class BoardController {
 		boardService.insertBoard(vo);
 		return "redirect:getBoardList.do";
 	}
+	
+	@RequestMapping(value = "/insertBoard2.do")
+	public String insertBoard2(BoardVO vo) throws IOException {
+		boardService.insertBoard(vo);
+		return "redirect:getBoardList.do";
+	}
 
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
