@@ -57,6 +57,10 @@
 		DELETE FROM BOARD WHERE NO = #{no}
 	</delete>
 	
+	<delete id="deleteMood">
+		DELETE FROM MOOD WHERE NO = #{no}
+	</delete>
+
 	<resultMap id="boardResult" type="board">
 		<id property="no" column="NO" />
 		<result property="writer" column="WRITER" />

@@ -42,6 +42,10 @@ public class BoardDAOMybatis{
 		mybatis.delete("BoardDAO.deleteBoard", vo);
 	}
 
+	public void deleteMood(BoardVO vo) {
+		mybatis.delete("BoardDAO.deleteMood", vo);
+	}
+
 	public BoardVO getBoard(BoardVO vo) {
 		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
 	}
