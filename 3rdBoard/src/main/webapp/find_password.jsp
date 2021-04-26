@@ -42,6 +42,7 @@ div#line {
 			<c:if test="${check == 1}">
 				<label>일치하는 정보가 존재하지 않습니다.</label>
 			</c:if>
+			
 		</div>
 	</div>
 </body>

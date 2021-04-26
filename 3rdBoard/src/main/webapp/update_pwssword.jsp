@@ -35,7 +35,6 @@ div#line {
 			</div>
 		</form>
 		<hr>
-		<a href="getBoardList.do">글 목록 가기</a>
 	</div>
 </body>
 </html>
