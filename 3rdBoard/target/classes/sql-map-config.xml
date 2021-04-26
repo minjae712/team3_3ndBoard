@@ -5,7 +5,8 @@
 <configuration>	
 	<!-- Alias 설정 -->
 	<typeAliases>
-		<typeAlias alias="board" type="com.springbook.biz.board.BoardVO" />
+		<typeAlias type="com.springbook.biz.board.BoardVO" alias="board" />
+		<typeAlias type="com.springbook.biz.board.MoodVO" alias="mvo" />
 		<typeAlias type="com.springbook.biz.user.UserVO" alias="user" />
 	</typeAliases>
 	

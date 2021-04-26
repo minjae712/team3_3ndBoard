@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
+import com.springbook.biz.board.MoodVO;
 import com.springbook.biz.board.PageSize;
 
 @Repository
@@ -21,7 +22,15 @@ public class BoardDAOMybatis{
 	public void insertBoard(BoardVO vo) {
 		mybatis.insert("BoardDAO.insertBoard", vo);
 	}
-
+	
+	public void insertMood() {
+		mybatis.insert("BoardDAO.insertMood");
+	}
+	
+	public void goodOrBad(MoodVO vo) {
+		mybatis.insert("BoardDAO.goodOrBad",vo);
+	}
+	
 	public void updateBoard(BoardVO vo) {
 		mybatis.update("BoardDAO.updateBoard", vo);
 	}
@@ -35,6 +44,10 @@ public class BoardDAOMybatis{
 
 	public BoardVO getBoard(BoardVO vo) {
 		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
+	}
+	
+	public MoodVO getMood(MoodVO mvo) {
+		return mybatis.selectOne("BoardDAO.getMood", mvo);
 	}
 	
 	public int getBoardCount() {

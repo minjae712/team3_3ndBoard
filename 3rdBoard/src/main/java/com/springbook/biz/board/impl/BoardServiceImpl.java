@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.springbook.biz.board.BoardPages;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
+import com.springbook.biz.board.MoodVO;
 import com.springbook.biz.board.PageSize;
 
 @Service("boardService")
@@ -18,8 +19,13 @@ public class BoardServiceImpl implements BoardService {
 
 	public void insertBoard(BoardVO vo) {
 		boardDAO.insertBoard(vo);
+		boardDAO.insertMood();
 	}
-
+	
+	public void goodOrBad(MoodVO vo) {
+		boardDAO.goodOrBad(vo);
+	}
+	
 	public void updateBoard(BoardVO vo) {
 		boardDAO.updateBoard(vo);
 	}
@@ -32,7 +38,11 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.increaseCount(vo);
 		return boardDAO.getBoard(vo);
 	}
-
+	
+	public MoodVO getMood(MoodVO mvo) {
+		return boardDAO.getMood(mvo);
+	}
+	
 	public BoardPages getBoardPages(int pageNo) {
 		int totalBoardCount = boardDAO.getBoardCount();
 		PageSize pageSize = new PageSize(((pageNo-1) * 10)+1, (pageNo * 10));
@@ -40,4 +50,7 @@ public class BoardServiceImpl implements BoardService {
 		return new BoardPages(totalBoardCount, pageNo, 10, boardList);
 		
 	}
+
+
+
 }

@@ -8,6 +8,12 @@
 		VALUES((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD),#{title},#{writer},#{content})
 	</insert>
 	
+	<insert id="insertMood" >	
+		INSERT INTO MOOD(no)
+		VALUES((SELECT NVL(MAX(NO), 0) FROM BOARD))
+	</insert>
+	
+	
 	<select id="getBoardCount" resultType="int">
 	<![CDATA[
 	SELECT COUNT(*) FROM BOARD
@@ -24,9 +30,23 @@
 		SELECT * FROM BOARD WHERE NO = #{no}
 	</select>
 
+	<select id="getMood" resultType="mvo">
+		SELECT * FROM MOOD WHERE NO = #{no}
+	</select>
 
 	<update id="increaseCount">
 		UPDATE BOARD SET CNT = CNT + 1 WHERE NO = #{no}
+	</update>
+
+	<update id="goodOrBad" parameterType="mvo">
+		UPDATE MOOD
+		<if test="good == 1">
+		SET GOOD = GOOD + 1
+		</if>
+		<if test="bad == 1">
+		SET BAD = BAD + 1
+		</if>
+		WHERE NO = #{no}
 	</update>
 
 	<update id="updateBoard">

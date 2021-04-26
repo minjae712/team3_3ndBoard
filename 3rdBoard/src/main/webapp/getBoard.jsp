@@ -32,9 +32,16 @@
 					<td colspan="1">${board.cnt}</td>
 				</tr>
 				<tr>
-					<td colspan="6" height="400">${board.content}</td>
+					<td colspan="6" height="400">${board.content}
+					</td>
+				</tr>
+				<tr>
 				</tr>
 			</table>
+					<center>
+					<a class="glyphicon glyphicon-thumbs-up" href="goodOrBad.do?good=1&no=${board.no}">추천 ${mvo.good}</a>
+					<a class="glyphicon glyphicon-thumbs-down" href="goodOrBad.do?bad=1&no=${board.no}">반대 ${mvo.bad}</a>
+					</center>
 		</div>
 		<hr>
 		<a class="btn btn-default" href="updateBoard.jsp">글수정</a>&nbsp;&nbsp;&nbsp; 
