@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommentDAO">
+
+	<insert id="insertComment" >	
+		INSERT INTO BOARD_COMMENT(NO,WRITER,ROLE,CONTENT)
+		VALUES((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD_COMMENT),#{writer},#{ROLE},#{content})
+	</insert>
+	
+	<select id="getCommentCount" resultType="int">
+	<![CDATA[
+	SELECT COUNT(*) FROM BOARD_COMMENT
+	]]>
+	</select>
+	
+	<select id="getCommentPages" resultType="Comment">
+	<![CDATA[
+	SELECT * FROM (SELECT B.*,ROWNUM AS R FROM (SELECT * FROM BOARD_COMMENT ORDER BY NO DESC) B) WHERE R >= #{startRow} AND R <= #{endRow}
+	]]>
+	</select>
+	
+	<select id="getComment" resultType="Comment">
+		SELECT * FROM BOARD_COMMENT WHERE NO = #{no}
+	</select>
+
+	<update id="updateComment">
+		UPDATE BOARD_COMMENT SET CONTENT=#{content} WHERE NO = #{no}
+	</update>
+
+	<delete id="deleteBoard">
+		DELETE FROM BOARD_COMMENT WHERE NO = #{no}
+	</delete>
+	
+	<resultMap id="CommentResult" type="Comment">
+		<id property="no" column="NO" />
+		<result property="writer" column="WRITER" />
+		<result property="role" column="ROLE" />
+		<result property="content" column="CONTENT" />
+		<result property="regDate" column="REGDATE" />
+	</resultMap>
+
+</mapper>
