@@ -34,8 +34,8 @@ public class CommentDAO{
 	public int getCommentCount() {
 		return mybatis.selectOne("CommentDAO.getCommentCount");
 	}
-	public List<CommentVO> getCommentPages(PageSize size) {
-		return mybatis.selectList("CommentDAO.getCommentPages",size);
+	public List<CommentVO> getCommentList(CommentVO vo) {
+		return mybatis.selectList("CommentDAO.getCommentList", vo);
 	}
 
 

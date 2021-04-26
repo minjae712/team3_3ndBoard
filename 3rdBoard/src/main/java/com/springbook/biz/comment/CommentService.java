@@ -1,5 +1,7 @@
 package com.springbook.biz.comment;
 
+import java.util.List;
+
 public interface CommentService {
 
 	void insertComment(CommentVO vo);
@@ -10,5 +12,5 @@ public interface CommentService {
 	
 	CommentVO getComment(CommentVO vo);
 	
-	CommentPages getCommentPages(int pageNo);
+	List<CommentVO> getCommentList(CommentVO vo);
 }

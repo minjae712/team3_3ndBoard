@@ -32,12 +32,8 @@ public class CommentServiceImpl implements CommentService{
 		return CommentDAO.getComment(vo);
 	}
 
-	public CommentPages getCommentPages(int pageNo) {
-		int totalBoardCount = CommentDAO.getCommentCount();
-		PageSize pageSize = new PageSize(((pageNo-1) * 10)+1, (pageNo * 10));
-		List<CommentVO> CommentList = CommentDAO.getCommentPages(pageSize);
-		return new CommentPages(totalBoardCount, pageNo, 10, CommentList);
-		
+	public List<CommentVO> getCommentList(CommentVO vo) {
+		return CommentDAO.getCommentList(vo);
 	}
 	
 }

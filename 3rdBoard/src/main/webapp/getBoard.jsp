@@ -39,10 +39,12 @@
 				</tr>
 			</table>
 					<center>
-					<a class="glyphicon glyphicon-thumbs-up" href="goodOrBad.do?good=1&no=${board.no}">추천 ${mvo.good}</a>
+					<a class="glyphicon glyphicon-thumbs-up" href="goodOrBad.do?good=1&no=${board.no}">추천 ${mvo.good}</a>&nbsp&nbsp
 					<a class="glyphicon glyphicon-thumbs-down" href="goodOrBad.do?bad=1&no=${board.no}">반대 ${mvo.bad}</a>
 					</center>
-		</div>
+			<hr>
+			<%@ include file="/comment.jsp" %>
+	</div>
 		<hr>
 		<a class="btn btn-default" href="updateBoard.jsp">글수정</a>&nbsp;&nbsp;&nbsp; 
 		<a class="btn btn-default" href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp; 

@@ -15,5 +15,6 @@
 	<mappers>
 		<mapper resource="mappings/board-mapping.xml" />
 		<mapper resource="mappings/user-mapping.xml" />
+		<mapper resource="mappings/comment-mapping.xml" />
 	</mappers>
 </configuration>

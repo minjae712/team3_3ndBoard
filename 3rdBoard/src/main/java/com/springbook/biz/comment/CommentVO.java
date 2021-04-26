@@ -1,6 +1,7 @@
 package com.springbook.biz.comment;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 @Getter @Setter
 public class CommentVO {
 	
+	private int commentNo;
 	private int no;
 	private String writer;
 	private String role;
@@ -16,7 +18,8 @@ public class CommentVO {
 	
 	@Override
 	public String toString() {
-		return "CommentVO [no=" + no + ", writer=" + writer + ", role=" + role + ", content=" + content + ", regdate="
-				+ regdate + "]";
+		return "CommentVO [commentNo=" + commentNo + ", no=" + no + ", writer=" + writer + ", role=" + role
+				+ ", content=" + content + ", regdate=" + regdate + "]";
 	}
+	
 }

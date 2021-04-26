@@ -15,6 +15,8 @@ import com.springbook.biz.board.BoardPages;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.MoodVO;
+import com.springbook.biz.comment.CommentService;
+import com.springbook.biz.comment.CommentVO;
 
 @Controller
 @SessionAttributes("board")
@@ -65,7 +67,7 @@ public class BoardController {
 	}
 
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardVO vo, Model model) {
+	public String getBoard(BoardVO vo, Model model,CommentVO Commentvo) {
 		BoardVO result = boardService.getBoard(vo);
 		model.addAttribute("board", result); 
 		return "redirect:getMood.do?no="+ result.getNo(); 
@@ -73,8 +75,9 @@ public class BoardController {
 
 	@RequestMapping("/getMood.do")
 	public String getMood(MoodVO mvo, Model model) {
-		model.addAttribute("mvo", boardService.getMood(mvo)); 
-		return "getBoard.jsp"; 
+		MoodVO result = boardService.getMood(mvo);
+		model.addAttribute("mvo", result); 
+		return "redirect:getCommentList.do?no=" + result.getNo(); 
 	}
 
 	@RequestMapping(value ="/getBoardList.do")
