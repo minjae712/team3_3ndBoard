@@ -23,7 +23,7 @@ public class UserVO {
 	
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + "]";
+		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + ", email=" + email +"]";
 	}
 
 	public Boolean isEmpty() {
