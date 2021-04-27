@@ -5,12 +5,12 @@
 
 	<insert id="insertComment">	
 		INSERT INTO BOARD_COMMENT(COMMENT_NO,NO,WRITER,CONTENT)
-		VALUES((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD_COMMENT),#{no},#{writer},#{content})
+		VALUES((SELECT NVL(MAX(COMMENT_NO), 0) + 1 FROM BOARD_COMMENT),#{no},#{writer},#{content})
 	</insert>
 	
 	<select id="getCommentList" resultType="Comment">
 	<![CDATA[
-	SELECT * FROM BOARD_COMMENT WHERE NO = #{no}
+	SELECT * FROM BOARD_COMMENT WHERE NO = #{no} ORDER BY COMMENT_NO
 	]]>
 	</select>
 	
@@ -27,9 +27,9 @@
 	</delete>
 	
 	<resultMap id="CommentResult" type="Comment">
-		<id property="no" column="NO" />
+		<id property="commentNo" column="COMMENT_NO"/>
+		<result property="no" column="NO" />
 		<result property="writer" column="WRITER" />
-		<result property="role" column="ROLE" />
 		<result property="content" column="CONTENT" />
 		<result property="regDate" column="REGDATE" />
 	</resultMap>
