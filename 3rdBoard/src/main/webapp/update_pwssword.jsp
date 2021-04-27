@@ -25,8 +25,7 @@ div#line {
 			<div style="width: 35%" class="form-group">
 
 				<label for="exampleInputName2">ID</label> <input
-					class="form-control" type="text" value="${find_id}" name="id"
-					readonly="readonly">
+					class="form-control" type="text" value="${find.id}" name="id" readonly="readonly">
 				<div>
 					<label for="exampleInputName2">새 비밀번호</label> <input
 						class="form-control" type="password" name="Password" required>
