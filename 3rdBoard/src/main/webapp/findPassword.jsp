@@ -21,7 +21,7 @@ div#line {
 
 		<div id="line">
 		<div align="center">
-		<h1>암호 찾기</h1>
+		<h1>비밀번호 찾기</h1>
 		</div>
 			<hr>
 			<div>
