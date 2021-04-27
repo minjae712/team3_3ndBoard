@@ -14,26 +14,24 @@ body{
 <body>
 	<center>
 		<h1>글 등록</h1>
-		<a href="logout.do">Log-out</a>
 		<hr>
 		<form class="form-inline" action="insertBoard.do" method="post">
-					제목
-					<input type="text" name="title" /></td>
-					<td bgcolor="orange">작성자</td>
-					<td align="left"><input type="text" name="writer" value="${user.name }" size="10" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="content" cols="40" rows="10"></textarea></td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value=" 새글 등록 " /></td>
-				</tr>
-			</table>
+			<div class="form-group">
+				<label for="exampleInputName2">제목</label>
+				<input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요" style="width:500px" />
+			</div>
+			<br>
+			<br>
+			<div class="form-group">
+				<label for="exampleInputName2">내용</label>
+				<textarea name="content" class="form-control" placeholder="내용을 입력해주세요" style="width:500px;height: 300px"></textarea>
+			</div>
+			<br>
+			<br>
+					<input class="btn btn-default" type="submit" value=" 새글 등록 " />
+					<input class="btn btn-default" type="button" onclick="history.back(-1);" value="취소">
 		</form>
 		<hr>
-		<a href="getBoardList.do">글 목록 가기</a>
 	</center>
 </body>
 </html>

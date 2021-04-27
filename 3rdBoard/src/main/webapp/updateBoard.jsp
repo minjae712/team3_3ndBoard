@@ -15,28 +15,28 @@ body{
 </head>
 <body>
 	<center>
-		<form action="updateBoard.do" method="post">
+		<hr>
+		<form class="form-inline" action="updateBoard.do" method="post">
 			<input type="hidden" name="no" value="${board.no}">
-			<p>
 				<b> 게시글 번호 : ${board.no} </b>
-			</p>
-			<div class="form-group" align="center">
-				<p>
-					<label for="exampleInputName2">제목 </label><br />
-					<input type="text" name="title" value="${board.title}"
-						class="form-control" style="width: 500px">
-				</p>
+				<br>
+			<div class="form-group">
+					<label for="exampleInputName2">제목 </label>
+					<input type="text" name="title" value="${board.title}" class="form-control" style="width: 500px">
 			</div>
-			<div class="form-group" align="center">
-				<p>
-					<label for="exampleInputName2">내용</label> <br />
+			<br>
+			<br>
+			<div class="form-group">
+					<label for="exampleInputName2">내용</label>
 					<textarea name="content" rows="5" cols="30" class="form-control"
 						style="width: 500px; height: 300px">${board.content}</textarea>
-				</p>
 			</div>
+			<br>
+			<br>
 			<input class="btn btn-default" type="submit" value="글 수정">
 			<input class="btn btn-default" type="button" onclick="history.back(-1);" value="취소">
 		</form>
 	</center>
+	<hr>
 </body>
 </html>

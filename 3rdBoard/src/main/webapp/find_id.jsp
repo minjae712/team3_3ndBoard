@@ -19,29 +19,28 @@ div#line {
 </head>
 <body>
 	<div id="line">
+	<center>
 		<h1>아이디 찾기</h1>
 		<hr>
+	</center>
 			<form class="form-inline" action="find_id.do" method="post">
-					
-					<label for="exampleInputName2">Email</label> <input
-						class="form-control" type="text" id="email" placeholder="Email"
-						name="email" required>
-					
-					<input type="submit" id="find_idBtn" value="ID찾기">
-					
+				<label for="exampleInputName2">Email</label>
+				<input class="form-control" type="text" id="email" placeholder="Email" name="email" required>
+				<input class="btn btn-default" type="submit" id="find_idBtn" value="ID찾기">
 					<c:if test="${check == 1}">
 						<label>일치하는 정보가 존재하지 않습니다.</label>
 					</c:if>
-
 					<!-- 이름과 비밀번호가 일치하지 할 때 -->
 					<c:if test="${check == 0 }">
 						<label>찾으시는 아이디는' ${find_id}' 입니다.</label>
 					</c:if>
 			</form>
+			<center>
 			<hr>
 			<a href="index.jsp">메인 화면으로</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
 				href="find_password.jsp">비밀번호 찾기</a>
 			<hr>
+			</center>
 			</div>
 </body>
 </html>
