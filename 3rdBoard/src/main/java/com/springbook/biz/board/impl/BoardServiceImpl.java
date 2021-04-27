@@ -44,10 +44,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getMood(mvo);
 	}
 	
-	public BoardPages getBoardPages(int pageNo) {
+	public BoardPages getBoardPages(int pageNo,BoardVO vo) {
 		int totalBoardCount = boardDAO.getBoardCount();
-		PageSize pageSize = new PageSize(((pageNo-1) * 10)+1, (pageNo * 10));
-		List<BoardVO> boardList = boardDAO.getBoardPages(pageSize);
+		vo.setStartRow(((pageNo-1) * 10)+1);
+		vo.setEndRow((pageNo * 10));
+		List<BoardVO> boardList = boardDAO.getBoardPages(vo);
 		return new BoardPages(totalBoardCount, pageNo, 10, boardList);
 		
 	}

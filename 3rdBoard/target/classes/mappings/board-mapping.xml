@@ -15,14 +15,27 @@
 	
 	
 	<select id="getBoardCount" resultType="int">
-	<![CDATA[
-	SELECT COUNT(*) FROM BOARD
-	]]>
+	SELECT COUNT(*) FROM BOARD WHERE 1 = 1
+	<if test="searchCondition == 'TITLE'">
+	AND TITLE LIKE '%'||#{searchKeyword}||'%'
+	</if>
+	<if test="searchCondition == 'CONTENT'">
+	AND CONTENT LIKE '%'||#{searchKeyword}||'%'
+	</if>
 	</select>
 	
 	<select id="getBoardPages" resultType="board">
+	SELECT * FROM
+	(SELECT B.*,ROWNUM AS R FROM (SELECT * FROM BOARD WHERE 1 = 1
+	<if test="searchCondition == 'TITLE'">
+	AND TITLE LIKE '%'||#{searchKeyword}||'%'
+	</if>
+	<if test="searchCondition == 'CONTENT'">
+	AND CONTENT LIKE '%'||#{searchKeyword}||'%'
+	</if>
+	ORDER BY NO DESC) B)
 	<![CDATA[
-	SELECT * FROM (SELECT B.*,ROWNUM AS R FROM (SELECT * FROM BOARD ORDER BY NO DESC) B) WHERE R >= #{startRow} AND R <= #{endRow}
+	WHERE R >= #{startRow} AND R <= #{endRow}
 	]]>
 	</select>
 	

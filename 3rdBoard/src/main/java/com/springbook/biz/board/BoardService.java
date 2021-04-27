@@ -16,5 +16,5 @@ public interface BoardService {
 	
 	MoodVO getMood(MoodVO mvo);
 	
-	BoardPages getBoardPages(int pageNo);
+	BoardPages getBoardPages(int pageNo,BoardVO vo);
 }

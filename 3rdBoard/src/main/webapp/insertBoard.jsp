@@ -20,6 +20,7 @@ body{
 			<div class="form-group">
 				<label for="exampleInputName2">제목</label>
 				<input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요" style="width:500px" />
+				<input type="hidden" name="writer" value="${user.name}">
 			</div>
 			<br>
 			<br>

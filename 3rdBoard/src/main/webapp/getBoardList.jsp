@@ -70,18 +70,12 @@
 		<center>
 		<form class="form-inline" action="getBoardList.do" method="post">
 		<div class="form-group">
-			<table>
-				<tr>
-					<td>
-					<select class="form-control" name="searchCondition">
-							<c:forEach items="${conditionMap}" var="option">
-								<option  value="${option.value}">${option.key}
-							</c:forEach>
-					</select>
-					<input class="form-control" name="searchKeyword" type="text" />
-					<input class="btn btn-default" type="submit" value="검색" /></td>
-				</tr>
-			</table>
+			<select class="form-control" name="searchCondition" >
+				<option value="TITLE" selected="selected" >제목</option>
+				<option value="CONTENT">내용</option>
+			</select>
+			<input class="form-control" name="searchKeyword" type="text" value="${bvo.searchKeyword}" />
+			<input class="btn btn-default" type="submit" value="검색" />
 			</div>
 		</form>
 		</center>

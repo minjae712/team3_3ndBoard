@@ -57,8 +57,8 @@ public class BoardDAOMybatis{
 	public int getBoardCount() {
 		return mybatis.selectOne("BoardDAO.getBoardCount");
 	}
-	public List<BoardVO> getBoardPages(PageSize size) {
-		return mybatis.selectList("BoardDAO.getBoardPages",size);
+	public List<BoardVO> getBoardPages(BoardVO vo) {
+		return mybatis.selectList("BoardDAO.getBoardPages",vo);
 	}
 
 

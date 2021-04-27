@@ -81,13 +81,17 @@ public class BoardController {
 	}
 
 	@RequestMapping(value ="/getBoardList.do")
-	public String getBoardList(BoardVO vo,BoardPages pages,Model model) {
+	public String getBoardList(@ModelAttribute("bvo")BoardVO vo,BoardPages pages,Model model) {
 		
 		int pageNo = 1;
 		if(pages.getCurrentPage() == 0) {
 			pages.setCurrentPage(pageNo);
 		}
-		model.addAttribute("pages",boardService.getBoardPages(pages.getCurrentPage()));
+		vo.searchNullCheck(vo);
+		System.out.println("condition :" + vo.getSearchCondition() + ", keyword :" + vo.getSearchKeyword());
+		BoardPages result = boardService.getBoardPages(pages.getCurrentPage(),vo);
+		vo.setSearchKeyword(vo.getSearchKeyword());
+		model.addAttribute("pages",result);
 		return "getBoardList.jsp";
 	}
 
