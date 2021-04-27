@@ -13,10 +13,10 @@ div{
 <body>
 <div></div>
 <center>
-<b>일치하는 데이터가 없습니다.</b><br>
+<b>회원님의 비밀번호는"${find.password}"입니다.</b><br>
 <br>
-<input class="btn btn-default" type="button" onclick="history.back(-1);" value="뒤로가기">
 <a class="btn btn-default" href="index.jsp">메인화면으로</a>
+<a class="btn btn-default" href="login.jsp">로그인하기</a>
 </center>
 </body>
 </html>

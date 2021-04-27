@@ -10,5 +10,5 @@ public interface UserService {
 
 	public UserVO find_id(UserVO vo);
 
-	public UserVO find_password(UserVO vo);
+	public UserVO findPassword(UserVO vo);
 }

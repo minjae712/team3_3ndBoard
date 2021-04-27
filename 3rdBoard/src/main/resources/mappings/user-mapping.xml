@@ -22,7 +22,7 @@
 		SELECT * FROM MEMBER WHERE EMAIL = #{email}
 	</select>
 
-	<select id="find_password" resultType="user">
-		SELECT * FROM MEMBER WHERE id=#{id} and email=#{email}
+	<select id="findPassword" resultType="user">
+		SELECT * FROM MEMBER WHERE ID = #{id}
 	</select>
 </mapper>

@@ -35,8 +35,8 @@ public class UserDAO {
 	}
 
 	// 암호 찾기
-	public UserVO find_password(UserVO vo) {
+	public UserVO findPassword(UserVO vo) {
 		System.out.println("암호 찾는다");
-		return mybatis.selectOne("userDAO.find_password", vo);
+		return mybatis.selectOne("userDAO.findPassword", vo);
 	}
 }

@@ -38,7 +38,7 @@ div#line {
 			
 			<hr>
 			<a href="index.jsp">메인 화면으로</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			<a href="find_password.jsp">비밀번호 찾기</a>
+			<a href="findPassword.jsp">비밀번호 찾기</a>
 			<hr>
 		
 			</div>

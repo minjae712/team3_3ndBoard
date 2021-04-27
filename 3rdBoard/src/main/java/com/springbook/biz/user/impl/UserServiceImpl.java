@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService {
 		return userDAO.find_id(vo);
 	}
 
-	public UserVO find_password(UserVO vo) {
+	public UserVO findPassword(UserVO vo) {
 		System.out.println("암호를 찾아여");
-		return userDAO.find_password(vo);
+		return userDAO.findPassword(vo);
 	}
 }

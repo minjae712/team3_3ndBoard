@@ -87,19 +87,20 @@ public class UserController {
 		return "find_id.jsp";
 	}
 
-	@RequestMapping("/find_password.do")
-	public String find_password(UserVO vo, Model model) {
-		System.out.println("암호 찾는중");
-		find_id(vo, model);
-		UserVO find_pw = userservice.find_password(vo);
-
-		if (find_pw == null) {
-			model.addAttribute("check", 1);
-		} else {
-			model.addAttribute("find_password", find_pw.getPassword());
-		}
-
-		return "update_pwssword.jsp";
-	}
-
+	@RequestMapping("/findPassword.do")
+	public String findPassword(UserVO vo, Model model) {
+			UserVO find_pw = userservice.findPassword(vo);
+			if(vo.getEmail().equals(find_pw.getEmail()) && vo.getId().equals(find_pw.getId())) {
+				model.addAttribute("find",find_pw);
+				return "findSuccess.jsp";
+			}else {
+				errors.put("email", Boolean.TRUE);
+				model.addAttribute("error",errors);
+				return "findPassword.jsp";
+			}
+		
+	}	
+	
 }
+
+
