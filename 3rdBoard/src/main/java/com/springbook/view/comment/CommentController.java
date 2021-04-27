@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.springbook.biz.board.BoardVO;
+import com.springbook.biz.board.MoodVO;
 import com.springbook.biz.comment.CommentService;
 import com.springbook.biz.comment.CommentVO;
 
@@ -43,8 +44,9 @@ public class CommentController {
 	}
 
 	@RequestMapping(value ="/getCommentList.do")
-	public String getBoardList(CommentVO vo,Model model) {
+	public String getBoardList(CommentVO vo,Model model,MoodVO mvo) {
 		model.addAttribute("commentList",CommentService.getCommentList(vo));
+		model.addAttribute("mvo",mvo);
 		return "getBoard.jsp";
 	}
 

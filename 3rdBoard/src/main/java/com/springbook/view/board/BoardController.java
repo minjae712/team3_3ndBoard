@@ -74,10 +74,12 @@ public class BoardController {
 	}
 
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardVO vo, Model model,CommentVO Commentvo) {
+	public String getBoard(BoardVO vo, Model model,CommentVO Commentvo,MoodVO mvo) {
 		BoardVO result = boardService.getBoard(vo);
-		model.addAttribute("board", result); 
-		return "redirect:getMood.do?no="+ result.getNo(); 
+		model.addAttribute("board", result);
+		mvo.setNo(vo.getNo());
+		MoodVO result2 = boardService.getMood(mvo);
+		return "redirect:getCommentList.do?no=" + result.getNo()+"&good="+ result2.getGood() + "&bad=" + result2.getBad(); 
 	}
 
 	@RequestMapping("/getNotice.do")
@@ -88,12 +90,12 @@ public class BoardController {
 		return "getNotice.jsp"; 
 	}
 
-	@RequestMapping("/getMood.do")
-	public String getMood(MoodVO mvo, Model model) {
-		MoodVO result = boardService.getMood(mvo);
-		model.addAttribute("mvo", result); 
-		return "redirect:getCommentList.do?no=" + result.getNo(); 
-	}
+//	@RequestMapping("/getMood.do")
+//	public String getMood(MoodVO mvo, Model model) {
+//		MoodVO result = boardService.getMood(mvo);
+//		model.addAttribute("mvo", result); 
+//		return "redirect:getCommentList.do?no=" + result.getNo(); 
+//	}
 
 	@RequestMapping(value ="/getBoardList.do")
 	public String getBoardList(@ModelAttribute("bvo")BoardVO vo,BoardPages pages,Model model) {

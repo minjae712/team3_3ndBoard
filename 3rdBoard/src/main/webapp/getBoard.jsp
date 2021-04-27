@@ -40,7 +40,7 @@
 				</tr>
 			</table>
 					<center>
-					<a class="glyphicon glyphicon-thumbs-up" href="goodOrBad.do?good=1&no=${board.no}">추천 ${mvo.good}</a>&nbsp&nbsp
+					<a class="glyphicon glyphicon-thumbs-up" href="goodOrBad.do?good=1&no=${board.no}">추천 ${mvo.good}</a>&nbsp;&nbsp;
 					<a class="glyphicon glyphicon-thumbs-down" href="goodOrBad.do?bad=1&no=${board.no}">반대 ${mvo.bad}</a>
 					</center>
 			<hr>
