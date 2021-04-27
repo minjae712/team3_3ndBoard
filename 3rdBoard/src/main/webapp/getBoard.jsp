@@ -12,7 +12,7 @@
 <body>
 	<center>
 		<%@ include file="/menuBar.jsp" %>
-		<h1><b>자유 게시판</b></h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
 		<hr>
 		<div style="width: 70%">
 			<table class="table table-bordered" >

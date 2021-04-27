@@ -16,7 +16,7 @@ body{
 <body>
 	<center>
 	<div style="width: 70%">
-		<h1>로그인</h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>로그인</b></a></h1>
 		<hr>
 		<form class="form-inline" action="login.do" method="post">
 			<div class="form-group" align="center">

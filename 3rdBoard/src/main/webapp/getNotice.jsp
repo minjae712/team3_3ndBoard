@@ -1,6 +1,5 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags/" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,7 +12,7 @@
 <body>
 	<center>
 		<%@ include file="/menuBar.jsp" %>
-		<h1><b>자유 게시판</b></h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
 		<hr>
 		<div style="width: 70%">
 			<table class="table table-bordered" >
@@ -43,10 +42,10 @@
 			<hr>
 	</div>
 		<hr>
-		<u:isLogin>
+		<c:if test="${user.isAdmin()}">
 		<a class="btn btn-default" href="insertNotice.jsp">공지등록</a>&nbsp;&nbsp;&nbsp; 
 		<a class="btn btn-default" href="deleteNotice.do?uni=${nvo.uni}">공지 삭제</a>&nbsp;&nbsp;&nbsp;
-		</u:isLogin>
+		</c:if>
 		<a class="btn btn-default" href="getBoardList.do">글목록</a>
 	</center>
 </body>

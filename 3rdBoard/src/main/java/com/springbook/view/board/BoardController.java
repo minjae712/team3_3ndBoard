@@ -90,12 +90,6 @@ public class BoardController {
 		return "getNotice.jsp"; 
 	}
 
-//	@RequestMapping("/getMood.do")
-//	public String getMood(MoodVO mvo, Model model) {
-//		MoodVO result = boardService.getMood(mvo);
-//		model.addAttribute("mvo", result); 
-//		return "redirect:getCommentList.do?no=" + result.getNo(); 
-//	}
 
 	@RequestMapping(value ="/getBoardList.do")
 	public String getBoardList(@ModelAttribute("bvo")BoardVO vo,BoardPages pages,Model model) {

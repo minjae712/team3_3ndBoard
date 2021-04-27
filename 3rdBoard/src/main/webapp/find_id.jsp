@@ -4,23 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-div#line {
-	position: absolute;
-	top: 10%;
-	left: 20%;
-}
+ div#line {
+ 	margin-top : 5%;
+ }
+ 
 </style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>아이디 찾기</title>
 </head>
 <body>
-	<div id="line">
+	<div id="line" align="center">
 	
-		<h1>아이디 찾기</h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>아이디 찾기</b></a></h1>
 		<hr>
 	
 			<form class="form-inline" action="find_id.do" method="post">

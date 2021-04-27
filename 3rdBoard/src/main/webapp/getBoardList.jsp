@@ -13,7 +13,7 @@
 <body>
 		<%@ include file="/menuBar.jsp" %>
 		<center>
-		<h1><b>자유 게시판</b></h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
 		</center>
 		<br>
 		<center>

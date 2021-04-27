@@ -19,7 +19,7 @@
 </head>
 <body>
 <div>
-<h1>게시판 프로그램</h1>
+<h1><a onclick="location.reload()" style="cursor: pointer;"><b>게시판 프로그램</b></a></h1>
 <hr>
 <u:isLogin>						
 	${user.name}님, 반갑습니다 !!<br><br>

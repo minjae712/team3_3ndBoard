@@ -15,7 +15,7 @@ body{
 <body>
 	<center>
 	<div style="width: 70%">
-		<h1>암호 변경</h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>비밀번호 변경</b></a></h1>
 		<hr>
 		<form class="form-inline" action="changePassword.do" method="post">
 			<div class="form-group" align="center">
