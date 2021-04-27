@@ -18,7 +18,6 @@ div{
 <br>
 <a class="btn btn-default" href="index.jsp">메인화면으로</a>
 <a class="btn btn-default" href="login.jsp">로그인하기</a>
-<a class="btn btn-default" href="changePwdForm">암호 변경하기</a>
 </center>
 </body>
 </html>
