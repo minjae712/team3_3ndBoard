@@ -19,6 +19,8 @@
 </head>
 <body>
 <div>
+<h1>게시판 프로그램</h1>
+<hr>
 <u:isLogin>						
 	${user.name}님, 반갑습니다 !!<br><br>
 	<a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath}/logout.do">로그아웃하기</a> <br><br>
