@@ -8,6 +8,11 @@
 		VALUES((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD),#{title},#{writer},#{content})
 	</insert>
 	
+	<insert id="insertNotice" >	
+		INSERT INTO NOTICE(UNI,NO,TITLE,WRITER,CONTENT)
+		VALUES(UNI_SEQ.NEXTVAL,'공지',#{title},#{writer},#{content})
+	</insert>
+
 	<insert id="insertMood" >	
 		INSERT INTO MOOD(no)
 		VALUES((SELECT NVL(MAX(NO), 0) FROM BOARD))
@@ -39,8 +44,17 @@
 	]]>
 	</select>
 	
+	<select id="getNoticeList" resultType="nvo">
+	SELECT * FROM NOTICE ORDER BY UNI DESC
+	</select>
+	
+	
 	<select id="getBoard" resultType="board">
 		SELECT * FROM BOARD WHERE NO = #{no}
+	</select>
+
+	<select id="getNotice" resultType="nvo">
+		SELECT * FROM NOTICE WHERE UNI = #{uni}
 	</select>
 
 	<select id="getMood" resultType="mvo">
@@ -70,6 +84,10 @@
 		DELETE FROM BOARD WHERE NO = #{no}
 	</delete>
 	
+	<delete id="deleteNotice">
+		DELETE FROM NOTICE WHERE UNI = #{uni}
+	</delete>
+
 	<delete id="deleteMood">
 		DELETE FROM MOOD WHERE NO = #{no}
 	</delete>

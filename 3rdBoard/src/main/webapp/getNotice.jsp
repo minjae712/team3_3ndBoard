@@ -1,4 +1,5 @@
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags/" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,39 +19,33 @@
 			<table class="table table-bordered" >
 				<tr>
 					<td colspan="1">제목</td>
-					<td colspan="5">${board.title}</td>
+					<td colspan="5"><c:out value="${nvo.title}" /></td>
 				</tr>
 				<tr>
 					<td>게시글번호</td>
-					<td colspan="6">${board.no}</td>
+					<td colspan="6"><c:out value="${nvo.no}" /></td>
 				</tr>
 				<tr>
 					<td colspan="1">작성자</td>
-					<td colspan="1">${board.writer}</td>
+					<td colspan="1"><c:out value="${nvo.writer}" /></td>
 					<td colspan="1">등록일</td>
-					<td colspan="1">${board.regDate}</td>
+					<td colspan="1"><c:out value="${nvo.regDate}" /></td>
 					<td colspan="1">조회수</td>
-					<td colspan="1">${board.cnt}</td>
+					<td colspan="1"><c:out value="${nvo.cnt}" /></td>
 				</tr>
 				<tr>
-					<td colspan="6" height="400">${board.content}
+					<td colspan="6" height="400"><c:out value="${nvo.content}" />
 					</td>
 				</tr>
 				<tr>
 				</tr>
 			</table>
-					<center>
-					<a class="glyphicon glyphicon-thumbs-up" href="goodOrBad.do?good=1&no=${board.no}">추천 ${mvo.good}</a>&nbsp&nbsp
-					<a class="glyphicon glyphicon-thumbs-down" href="goodOrBad.do?bad=1&no=${board.no}">반대 ${mvo.bad}</a>
-					</center>
 			<hr>
-			<%@ include file="/comment.jsp" %>
 	</div>
 		<hr>
 		<u:isLogin>
-		<a class="btn btn-default" href="updateBoard.jsp">글수정</a>&nbsp;&nbsp;&nbsp; 
-		<a class="btn btn-default" href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp; 
-		<a class="btn btn-default" href="deleteBoard.do?no=${board.no}">글삭제</a>&nbsp;&nbsp;&nbsp;
+		<a class="btn btn-default" href="insertNotice.jsp">공지등록</a>&nbsp;&nbsp;&nbsp; 
+		<a class="btn btn-default" href="deleteNotice.do?uni=${nvo.uni}">공지 삭제</a>&nbsp;&nbsp;&nbsp;
 		</u:isLogin>
 		<a class="btn btn-default" href="getBoardList.do">글목록</a>
 	</center>

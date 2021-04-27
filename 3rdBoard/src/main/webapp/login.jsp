@@ -31,7 +31,7 @@ body{
 			</div>
 		</form>
 		<hr>
-					<a href="find_id.jsp"><b>아이디 찾기</b></a>&nbsp;&nbsp;<a href="findPassword.jsp"><b>비밀번호 찾기</b></a>
+					<a href="find_id.jsp"><b>아이디 찾기</b></a>&nbsp;|&nbsp;<a href="findPassword.jsp"><b>비밀번호 찾기</b></a>
 	</div>
 	</center>
 </body>

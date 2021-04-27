@@ -15,6 +15,7 @@ import com.springbook.biz.board.BoardPages;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.MoodVO;
+import com.springbook.biz.board.NoticeVO;
 import com.springbook.biz.comment.CommentService;
 import com.springbook.biz.comment.CommentVO;
 
@@ -66,11 +67,25 @@ public class BoardController {
 		return "redirect:getBoardList.do";
 	}
 
+	@RequestMapping("/deleteNotice.do")
+	public String deleteNotice(NoticeVO nvo) {
+		boardService.deleteNotice(nvo);
+		return "redirect:getBoardList.do";
+	}
+
 	@RequestMapping("/getBoard.do")
 	public String getBoard(BoardVO vo, Model model,CommentVO Commentvo) {
 		BoardVO result = boardService.getBoard(vo);
 		model.addAttribute("board", result); 
 		return "redirect:getMood.do?no="+ result.getNo(); 
+	}
+
+	@RequestMapping("/getNotice.do")
+	public String getNotice(NoticeVO nvo, Model model) {
+		NoticeVO result = boardService.getNotice(nvo);
+		model.addAttribute("nvo", result);
+		System.out.println(result.toString());
+		return "getNotice.jsp"; 
 	}
 
 	@RequestMapping("/getMood.do")
@@ -88,11 +103,17 @@ public class BoardController {
 			pages.setCurrentPage(pageNo);
 		}
 		vo.searchNullCheck(vo);
-		System.out.println("condition :" + vo.getSearchCondition() + ", keyword :" + vo.getSearchKeyword());
 		BoardPages result = boardService.getBoardPages(pages.getCurrentPage(),vo);
 		vo.setSearchKeyword(vo.getSearchKeyword());
+		model.addAttribute("noticeList",boardService.getNoticeList());
 		model.addAttribute("pages",result);
 		return "getBoardList.jsp";
+	}
+	
+	@RequestMapping(value = "/insertNotice.do")
+	public String insertNotice(NoticeVO vo) throws IOException {
+		boardService.insertNotice(vo);
+		return "redirect:getBoardList.do";
 	}
 
 
