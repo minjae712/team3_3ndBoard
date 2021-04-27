@@ -3,6 +3,12 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+body{
+	margin-top: 5%;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>새글등록</title>
 </head>
 <body>
@@ -10,13 +16,9 @@
 		<h1>글 등록</h1>
 		<a href="logout.do">Log-out</a>
 		<hr>
-		<form action="insertBoard.do" method="post">
-			<table border="1" cellpadding="0" cellspacing="0">
-				<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="title" /></td>
-				</tr>
-				<tr>
+		<form class="form-inline" action="insertBoard.do" method="post">
+					제목
+					<input type="text" name="title" /></td>
 					<td bgcolor="orange">작성자</td>
 					<td align="left"><input type="text" name="writer" value="${user.name }" size="10" /></td>
 				</tr>
