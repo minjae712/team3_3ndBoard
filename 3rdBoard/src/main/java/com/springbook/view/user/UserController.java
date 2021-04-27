@@ -96,7 +96,6 @@ public class UserController {
 		if (find_pw == null) {
 			model.addAttribute("check", 1);
 		} else {
-			model.addAttribute("check", 0);
 			model.addAttribute("find_password", find_pw.getPassword());
 		}
 
