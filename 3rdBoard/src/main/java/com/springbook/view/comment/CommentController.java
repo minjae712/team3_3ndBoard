@@ -21,19 +21,19 @@ public class CommentController {
 	@RequestMapping(value = "/insertComment.do")
 	public String insertComment(CommentVO vo) throws IOException {
 		CommentService.insertComment(vo);
-		return "redirect:getBoardList.do";
+		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/updateComment.do")
 	public String updateBoard(@ModelAttribute("Comment") CommentVO vo) {
 		CommentService.updateComment(vo);
-		return "redirect:getBoardList.do";
+		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/deleteComment.do")
 	public String deleteBoard(CommentVO vo) {
 		CommentService.deleteComment(vo);
-		return "redirect:getBoardList.do";
+		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/getComment.do")

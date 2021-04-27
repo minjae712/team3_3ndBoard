@@ -16,7 +16,7 @@
 			<input type="hidden" name="writer" value="${user.name}"/>
 			<div>
 			<label for="content">댓글</label>
-			<textarea rows="3" cols="100" id="content" class="form-control"></textarea>
+			<textarea rows="3" cols="100" name="content" class="form-control"></textarea>
 			</div>
 			<div align="right">
 				<button type="submit" class="btn btn-primary">등록</button>
@@ -24,16 +24,18 @@
 			</div>
 			</form>
 		</div>
-		<table width="" class="table table-hover">
+		<div align="left">
+			<hr>
 		<c:forEach items="${commentList}" var="comment">
-			<tr>
-				<td>${comment.writer}</td>
-				<td>${comment.regdate}</td>
-			</tr>
-			<tr>
-				<td colspan="2">${comment.content}</td>
-			</tr>
+				<div>
+				<div><b>${comment.writer}</b></div>
+				</div>
+				<div>${comment.content}</div>
+				<div><small>${comment.regDate}</small></div>
+				<div align="right">
+				</div>
+				<hr>
 		</c:forEach>
-		</table>
+		</div>
 </body>
 </html>
