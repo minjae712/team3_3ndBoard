@@ -3,36 +3,35 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+body{
+	margin-top: 10%;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>로그인</title>
 </head>
 <body>
 	<center>
+	<div style="width: 70%">
 		<h1>로그인</h1>
 		<hr>
-		<form action="login.do" method="post">
-			<table border="1" cellpadding="0" cellspacing="0">
-				<tr>
-					<td bgcolor="orange">아이디</td>
-					<td><input type="text" name="id" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">비밀번호</td>
-					<td><input type="password" name="password" /></td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="로그인" /></td>
-				</tr>
-				<tr>
-
-					<td colspan="2" align="center"><a href="find_id.jsp">아이디
-							찾기</a></td>
-				</tr>
-			</table>
+		<form class="form-inline" action="login.do" method="post">
+			<div class="form-group" align="center">
+					<label for="exampleInputName2">아이디</label>
+					<input class="form-control" placeholder="ID" type="text" name="id" />
+			</div>
+			<div class="form-group" align="center">
+					<label for="exampleInputName2">비밀번호</label>
+					<input type="password" name="password" class="form-control" placeholder="비밀번호"/>
+					<input type="submit" value="로그인" class="btn btn-default" />
+					<a class="btn btn-default" href="index.jsp">취소</a>
+			</div>
 		</form>
 		<hr>
+					<a href="find_id.jsp"><b>아이디 찾기</b></a>
+	</div>
 	</center>
 </body>
 </html>
