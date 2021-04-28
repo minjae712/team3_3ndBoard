@@ -90,7 +90,6 @@ public class UserController {
 	@RequestMapping("/findPassword.do")
 	public String findPassword(UserVO vo, Model model) {
 			UserVO find_pw = userservice.findPassword(vo);
-			find_id(vo, model);
 			if(vo.getEmail().equals(find_pw.getEmail()) && vo.getId().equals(find_pw.getId())) {
 				model.addAttribute("find",find_pw);
 				return "findSuccess.jsp";
