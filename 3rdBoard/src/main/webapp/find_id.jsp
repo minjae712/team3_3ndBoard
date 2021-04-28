@@ -32,7 +32,7 @@
 					</c:if>
 					<!-- 이름과 비밀번호가 일치하지 할 때 -->
 					<c:if test="${check == 0 }">
-						<label>찾으시는 아이디는' ${find_id}' 입니다.</label>
+						<br><label>찾으시는 아이디는' ${find_id}' 입니다.</label>
 					</c:if>
 			</form>
 			

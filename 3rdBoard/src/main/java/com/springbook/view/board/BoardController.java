@@ -26,14 +26,6 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@ModelAttribute("conditionMap")
-	public Map<String, String> searchConditionMap() {
-		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("내용", "CONTENT");
-		conditionMap.put("제목", "TITLE");
-		return conditionMap;
-	}
-	
 	
 	@RequestMapping("/goodOrBad.do")
 	public String goodOrBad(MoodVO vo) throws IOException {
@@ -49,11 +41,6 @@ public class BoardController {
 		return "redirect:getBoardList.do";
 	}
 	
-	@RequestMapping(value = "/insertBoard2.do")
-	public String insertBoard2(BoardVO vo) throws IOException {
-		boardService.insertBoard(vo);
-		return "redirect:getBoardList.do";
-	}
 
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
@@ -86,7 +73,6 @@ public class BoardController {
 	public String getNotice(NoticeVO nvo, Model model) {
 		NoticeVO result = boardService.getNotice(nvo);
 		model.addAttribute("nvo", result);
-		System.out.println(result.toString());
 		return "getNotice.jsp"; 
 	}
 
