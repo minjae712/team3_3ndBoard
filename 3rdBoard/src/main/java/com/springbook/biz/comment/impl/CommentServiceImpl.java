@@ -28,8 +28,8 @@ public class CommentServiceImpl implements CommentService{
 		CommentDAO.deleteComment(vo);
 	}
 
-	public CommentVO getComment(CommentVO vo) {
-		return CommentDAO.getComment(vo);
+	public int getCommentCount(CommentVO vo) {
+		return CommentDAO.getCommentCount(vo);
 	}
 
 	public List<CommentVO> getCommentList(CommentVO vo) {

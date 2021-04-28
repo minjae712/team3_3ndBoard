@@ -4,14 +4,17 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <title>글 상세</title>
 </head>
 <body>
+
 		<div align="left">
+		댓글  ${count}개 
+		<c:choose>
+		<c:when test="${user != null}">
 			<form action="insertComment.do" method="post">
 			<input type="hidden" name="no" value="${board.no}"/>
 			<input type="hidden" name="writer" value="${user.name}"/>
@@ -24,6 +27,11 @@
 				<botton type="reset" class="btn btn-default">취소</botton>
 			</div>
 			</form>
+		</c:when>
+		<c:when test="${user == null}">
+			<h4>로그인이 필요합니다.</h4>
+		</c:when>
+		</c:choose>
 		</div>
 		<div align="left">
 			<hr>
@@ -33,8 +41,11 @@
 				</div>
 				<div>${comment.content}</div>
 				<div><small>${comment.regDate}</small></div>
+				<c:if test="${comment.writer == user.name}">
 				<div align="right">
+				<a href="deleteComment.do?no=${comment.no}&commentNo=${comment.commentNo}">[삭제]</a> 
 				</div>
+				</c:if>
 				<hr>
 		</c:forEach>
 		</div>

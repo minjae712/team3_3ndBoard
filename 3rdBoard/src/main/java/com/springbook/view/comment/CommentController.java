@@ -37,14 +37,9 @@ public class CommentController {
 		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
-	@RequestMapping("/getComment.do")
-	public String getBoard(CommentVO vo, Model model) {
-		model.addAttribute("board", CommentService.getComment(vo)); 
-		return "getBoard.jsp"; 
-	}
-
 	@RequestMapping(value ="/getCommentList.do")
 	public String getBoardList(CommentVO vo,Model model,MoodVO mvo) {
+		model.addAttribute("count", CommentService.getCommentCount(vo));
 		model.addAttribute("commentList",CommentService.getCommentList(vo));
 		model.addAttribute("mvo",mvo);
 		return "getBoard.jsp";
