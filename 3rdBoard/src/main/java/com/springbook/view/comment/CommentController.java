@@ -26,25 +26,20 @@ public class CommentController {
 	}
 
 	@RequestMapping("/updateComment.do")
-	public String updateBoard(@ModelAttribute("Comment") CommentVO vo) {
+	public String updateComment(@ModelAttribute("Comment") CommentVO vo) {
 		CommentService.updateComment(vo);
 		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
 	@RequestMapping("/deleteComment.do")
-	public String deleteBoard(CommentVO vo) {
+	public String deleteComment(CommentVO vo) {
 		CommentService.deleteComment(vo);
 		return "redirect:getBoard.do?no="+vo.getNo();
 	}
 
-	@RequestMapping("/getComment.do")
-	public String getBoard(CommentVO vo, Model model) {
-		model.addAttribute("board", CommentService.getComment(vo)); 
-		return "getBoard.jsp"; 
-	}
-
 	@RequestMapping(value ="/getCommentList.do")
-	public String getBoardList(CommentVO vo,Model model,MoodVO mvo) {
+	public String getCommentList(CommentVO vo,Model model,MoodVO mvo) {
+		model.addAttribute("count", CommentService.getCommentCount(vo));
 		model.addAttribute("commentList",CommentService.getCommentList(vo));
 		model.addAttribute("mvo",mvo);
 		return "getBoard.jsp";

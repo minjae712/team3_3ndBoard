@@ -8,21 +8,21 @@
 		VALUES((SELECT NVL(MAX(COMMENT_NO), 0) + 1 FROM BOARD_COMMENT),#{no},#{writer},#{content})
 	</insert>
 	
-	<select id="getCommentList" resultType="Comment">
+	<select id="getCommentList" resultMap="CommentResult">
 	<![CDATA[
 	SELECT * FROM BOARD_COMMENT WHERE NO = #{no} ORDER BY COMMENT_NO
 	]]>
 	</select>
 	
-	<select id="getComment" resultType="Comment">
-		SELECT * FROM BOARD_COMMENT WHERE NO = #{no} AND #{commentNo}
-	</select>
-
 	<update id="updateComment">
 		UPDATE BOARD_COMMENT SET CONTENT=#{content} WHERE NO = #{no} AND COMMENT_NO = #{commentNo}
 	</update>
-
-	<delete id="deleteBoard">
+	
+	<select id="getCommentCount" resultType="int">
+	SELECT COUNT(*) FROM BOARD_COMMENT WHERE NO = #{no}
+	</select>
+	
+	<delete id="deleteComment">
 		DELETE FROM BOARD_COMMENT WHERE NO = #{no} AND COMMENT_NO = #{commentNo}
 	</delete>
 	

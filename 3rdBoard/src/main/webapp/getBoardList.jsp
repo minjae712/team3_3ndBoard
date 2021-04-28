@@ -13,7 +13,7 @@
 <body>
 		<%@ include file="/menuBar.jsp" %>
 		<center>
-		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
+		<h1><a href="getBoardList.do" onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
 		</center>
 		<br>
 		<center>
@@ -49,7 +49,6 @@
 				</tr>
 			</c:if>
 			<c:forEach items="${pages.boardList}" var="board">
-			
 			<tr>
 				<td>${board.no}</td>
 				<td align="left"><a href="getBoard.do?no=${board.no}">${board.title}</a></td>
@@ -63,13 +62,13 @@
 					<td colspan="5" class="text-center">
 						<ul class="pagination">
 							<c:if test="${pages.startPage > 5}">
-								<li><a href="getBoardList.do?currentPage=${pages.startPage - 5}">이전</a></li>
+								<li><a href="getBoardList.do?currentPage=${pages.startPage - 5}&searchKeyword=${bvo.searchKeyword}">이전</a></li>
 							</c:if> 
 								<c:forEach var="pNo" begin="${pages.startPage}" end="${pages.endPage}">
-									<li><a href="getBoardList.do?currentPage=${pNo}">${pNo}</a>
+									<li><a href="getBoardList.do?currentPage=${pNo}&searchKeyword=${bvo.searchKeyword}">${pNo}</a>
 								</c:forEach>
 							<c:if test="${pages.endPage < pages.totalPages}">
-								<li><a href="getBoardList.do?currentPage=${pages.startPage + 5}">다음</a></li>
+								<li><a href="getBoardList.do?currentPage=${pages.startPage + 5}&searchKeyword=${bvo.searchKeyword}">다음</a></li>
 							</c:if>
 						</ul> 
 					</td>

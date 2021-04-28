@@ -26,7 +26,7 @@ public class UserController {
 			return "createUser.jsp";
 		}
 		userservice.createUser(vo);
-		return "index.jsp";
+		return "createUserSuccess.jsp";
 	}
 
 	@RequestMapping("/login.do")

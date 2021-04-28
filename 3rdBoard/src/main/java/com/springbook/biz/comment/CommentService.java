@@ -10,7 +10,7 @@ public interface CommentService {
 
 	void deleteComment(CommentVO vo);
 	
-	CommentVO getComment(CommentVO vo);
+	int getCommentCount(CommentVO vo);
 	
 	List<CommentVO> getCommentList(CommentVO vo);
 }
