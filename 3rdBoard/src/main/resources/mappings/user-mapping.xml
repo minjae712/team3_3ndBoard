@@ -6,8 +6,8 @@
 <mapper namespace="userDAO">
 
 	<insert id="createUser">
-		INSERT INTO MEMBER(ID,ROLE,PASSWORD,EMAIL,IMAGE,NAME,POST,ADDRESS)
-		VALUES(#{id},#{role},#{password},#{email},#{image},#{name},#{post},#{address})
+		INSERT INTO MEMBER(ID,ROLE,PASSWORD,EMAIL,IMAGE,NAME,BIRTH,POST,ADDRESS)
+		VALUES(#{id},#{role},#{password},#{email},#{image},#{name},#{birth},#{post},#{address})
 	</insert>
 
 	<select id="getUser" resultType="user">
