@@ -13,16 +13,18 @@
 <body>
 		<%@ include file="/menuBar.jsp" %>
 		<center>
-		<h1><b>자유 게시판</b></h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>자유 게시판</b></a></h1>
 		</center>
 		<br>
-		<c:if test="${user.isEmpty()}">
-		</c:if>
 		<center>
 		<div style="width: 70%">
 		<div align="right">
+		<c:if test="${user.isEmpty()}">
 		<a class="btn btn-default" href="insertBoard.jsp">새글 등록</a>
-		<a class="btn btn-default" href="insertBoard2.jsp">공지사항 등록</a>
+			<c:if test="${user.isAdmin()}">
+			<a class="btn btn-danger" href="insertNotice.jsp">공지사항 등록</a>
+			</c:if>
+		</c:if>
 		</div>
 		<table class="table table-striped" width="650">
 			<tr>
@@ -32,6 +34,15 @@
 				<th width="100">등록일</th>
 				<th width="50">조회수</th>
 			</tr>
+			<c:forEach items="${noticeList}" var="notice">
+			<tr class="info">
+				<td>${notice.no}</td>
+				<td><a href="getNotice.do?uni=${notice.uni}"><b>${notice.title}</b></a></td>
+				<td><b>${notice.writer}</b></td>
+				<td><b>${notice.regDate}</b></td>
+				<td><b>${notice.cnt}</b></td>
+			</tr>
+			</c:forEach>
 			<c:if test="${pages.hasNoArticles()}">
 				<tr>
 					<td width="650">등록된 게시물이 없습니다.</td>

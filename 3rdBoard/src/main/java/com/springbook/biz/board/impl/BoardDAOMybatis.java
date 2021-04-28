@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.MoodVO;
+import com.springbook.biz.board.NoticeVO;
 import com.springbook.biz.board.PageSize;
 
 @Repository
@@ -23,6 +24,10 @@ public class BoardDAOMybatis{
 		mybatis.insert("BoardDAO.insertBoard", vo);
 	}
 	
+	public void insertNotice(NoticeVO nvo) {
+		mybatis.insert("BoardDAO.insertNotice", nvo);
+	}
+
 	public void insertMood() {
 		mybatis.insert("BoardDAO.insertMood");
 	}
@@ -46,8 +51,20 @@ public class BoardDAOMybatis{
 		mybatis.delete("BoardDAO.deleteMood", vo);
 	}
 
+	public void deleteNotice(NoticeVO nvo) {
+		mybatis.delete("BoardDAO.deleteNotice", nvo);
+	}
+
 	public BoardVO getBoard(BoardVO vo) {
 		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
+	}
+	
+	public NoticeVO getNotice(NoticeVO nvo) {
+		return mybatis.selectOne("BoardDAO.getNotice", nvo);
+	}
+
+	public List<NoticeVO> getNoticeList() {
+		return mybatis.selectList("BoardDAO.getNoticeList");
 	}
 	
 	public MoodVO getMood(MoodVO mvo) {

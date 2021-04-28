@@ -14,19 +14,19 @@ body{
 </head>
 <body>
 	<center>
-		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>글 등록</b></a></h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>공지사항 등록</b></a></h1>
 		<hr>
-		<form class="form-inline" action="insertBoard.do" method="post">
+		<form class="form-inline" action="insertNotice.do" method="post">
 			<div class="form-group">
 				<label for="exampleInputName2">제목</label>
-				<input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요" style="width:500px" />
+				<input type="text" name="title" class="form-control" placeholder="공지사항 제목을 입력해주세요" style="width:500px" />
 				<input type="hidden" name="writer" value="${user.name}">
 			</div>
 			<br>
 			<br>
 			<div class="form-group">
 				<label for="exampleInputName2">내용</label>
-				<textarea name="content" class="form-control" placeholder="내용을 입력해주세요" style="width:500px;height: 300px"></textarea>
+				<textarea name="content" class="form-control" placeholder="공지사항 내용을 입력해주세요" style="width:500px;height: 300px"></textarea>
 			</div>
 			<br>
 			<br>

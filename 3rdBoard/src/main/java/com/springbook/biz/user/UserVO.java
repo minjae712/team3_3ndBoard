@@ -43,4 +43,8 @@ public class UserVO {
 		return vo.getPassword().equals(password);
 	}
 	
+	public Boolean isAdmin() {
+		return this.role.equals("admin");
+	}
+	
 }

@@ -20,8 +20,8 @@
 <body>
 	<article class="container">
          <div class="page-header">
+				<center><h1><a onclick="location.reload()" style="cursor: pointer;"><b>회원가입</b></a></h1></center>
              <div class="col-md-6 col-md-offset-3">
-				<h1>회원가입</h1>
               </div>
          </div>
 

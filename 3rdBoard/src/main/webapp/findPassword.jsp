@@ -7,9 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 div#line {
-	position: absolute;
-	top: 10%;
-	left: 20%;
+	margin-top : 5%;
 }
 </style>
 <meta charset="UTF-8">
@@ -21,10 +19,10 @@ div#line {
 
 		<div id="line">
 		<div align="center">
-		<h1>비밀번호 찾기</h1>
+		<h1><a onclick="location.reload()" style="cursor: pointer;"><b>비밀번호 찾기</b></a></h1>
 		</div>
 			<hr>
-			<div>
+			<div align="center">
 				<form class="form-inline" action="findPassword.do" method="post">
 				<div class="form-group">
 					<label for="exampleInputName2">ID</label>
