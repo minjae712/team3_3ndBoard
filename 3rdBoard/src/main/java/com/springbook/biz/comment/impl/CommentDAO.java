@@ -31,9 +31,10 @@ public class CommentDAO{
 		return (CommentVO) mybatis.selectOne("CommentDAO.getCommentd", vo);
 	}
 	
-	public int getCommentCount() {
-		return mybatis.selectOne("CommentDAO.getCommentCount");
+	public int getCommentCount(CommentVO vo) {
+		return mybatis.selectOne("CommentDAO.getCommentCount",vo);
 	}
+	
 	public List<CommentVO> getCommentList(CommentVO vo) {
 		return mybatis.selectList("CommentDAO.getCommentList", vo);
 	}
